@@ -1,7 +1,13 @@
 import streamlit as st
 import pandas as pd
+import os
+
+os.environ['STREAMLIT_SERVER_MAX_UPLOAD_SIZE'] = '1024'
 
 st.title('Data Filtering App')
+
+#debug print to check upload size change works
+st.write(f"Max upload size: {os.getenv('STREAMLIT_SERVER_MAX_UPLOAD_SIZE')} MB")
 
 # File upload
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
